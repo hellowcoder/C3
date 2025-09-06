@@ -7,7 +7,7 @@ export default function AttendancePage() {
     (<div className="flex flex-col gap-8">
       <div className="flex items-center justify-between">
         <h1 className="text-4xl font-bold">Attendance</h1>
-        <Button>Mark Today's Attendance</Button>
+        <Button>Mark Today&apos;s Attendance</Button>
       </div>
       <div className="border rounded-lg">
         <Table>

@@ -18,9 +18,10 @@ export function Header() {
           Coding Club
         </Link>
         <div className="flex gap-4">
-          <Link href="/dashboard">Dashboard</Link>
-          <Link href="/attendance">Attendance</Link>
-          <Link href="/contests">Contests</Link>
+          <Link href="/general">General</Link>
+          <Link href="/member/dashboard">Member Dashboard</Link>
+          <Link href="/member/attendance">Member Attendance</Link>
+          <Link href="/member/contests">Member Contests</Link>
         </div>
       </nav>
     </header>

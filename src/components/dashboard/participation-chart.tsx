@@ -1,38 +1,34 @@
 "use client";
 
-import { Pie, PieChart, ResponsiveContainer, Cell } from "recharts";
+import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
+// Mock data for contest participation (present/absent)
 const data = [
-  { name: "Participated", value: 3 },
-  { name: "Not Participated", value: 1 },
+  { name: "Contest 1", present: 10, absent: 2 },
+  { name: "Contest 2", present: 8, absent: 4 },
+  { name: "Contest 3", present: 12, absent: 1 },
+  { name: "Contest 4", present: 7, absent: 3 },
+  { name: "Contest 5", present: 11, absent: 0 },
 ];
-
-const COLORS = ["#adfa1d", "#888888"];
 
 export function ParticipationChart() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Participation</CardTitle>
+        <CardTitle>Contest Participation</CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="pl-2">
         <ResponsiveContainer width="100%" height={350}>
-          <PieChart>
-            <Pie
-              data={data}
-              cx="50%"
-              cy="50%"
-              labelLine={false}
-              outerRadius={80}
-              fill="#8884d8"
-              dataKey="value"
-            >
-              {data.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-              ))}
-            </Pie>
-          </PieChart>
+          <BarChart data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
+            <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="present" fill="#82ca9d" name="Present" />
+            <Bar dataKey="absent" fill="#fa8072" name="Absent" />
+          </BarChart>
         </ResponsiveContainer>
       </CardContent>
     </Card>

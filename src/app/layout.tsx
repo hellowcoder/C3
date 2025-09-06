@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Orbitron } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/Header";
+
 import PageTransition from "@/components/PageTransition";
 
 const geistSans = Geist({
@@ -21,8 +21,8 @@ const orbitron = Orbitron({
 });
 
 export const metadata: Metadata = {
-  title: "Coding Club Manager",
-  description: "Manage your competitive coding club",
+  title: "Competitive Coding Club",
+  
 };
 
 export default function RootLayout({
@@ -35,7 +35,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${orbitron.variable} antialiased`}
       >
-        <Header />
+        
         <main className="p-8">
           <PageTransition>{children}</PageTransition>
         </main>

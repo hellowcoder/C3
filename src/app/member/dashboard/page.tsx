@@ -5,8 +5,7 @@ import { ParticipationChart } from '@/components/dashboard/participation-chart';
 // import { UpcomingContestsCard } from '@/components/dashboard/upcoming-contests-card'; // Removed
 import { mockStudents, mockContests } from '@/lib/mock-data';
 import { Users, ListChecks, Percent } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+
 
 export default function DashboardPage() {
   const totalStudents = mockStudents.length;
