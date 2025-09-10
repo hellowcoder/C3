@@ -12,6 +12,7 @@ export function Sidebar() {
     { name: 'Leaderboard', href: '/member/leaderboard' },
     { name: 'Attendance', href: '/member/attendance' },
     { name: 'Students', href: '/member/students' },
+    { name: 'CP Game', href: '/member/cp-game' },
   ];
 
   return (
