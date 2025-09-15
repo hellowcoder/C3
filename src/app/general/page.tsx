@@ -1,91 +1,62 @@
-// app/general/page.tsx
+'use client';
 
-"use client"
+import BubbleMenu from "@/components/ui/BubbleMenu";
 
-import { PageHeader } from "@/components/page-header"
-import Link from "next/link"
-import { motion } from "framer-motion"
-
-const bubbles = [
+const items = [
+  // {
+  //   label: "Home",
+  //   href: "/general",
+  //   ariaLabel: "Home",
+  //   rotation: -8,
+  //   hoverStyles: { bgColor: "#3b82f6", textColor: "#ffffff" },
+  // },
   {
-    href: "/general/contests",
-    title: "Club Contests",
-    desc: "View upcoming and past contests.",
-    delay: 0,
-  },
-  {
-    href: "/general/announcements",
-    title: "Announcements",
-    desc: "Latest news and announcements.",
-    delay: 1,
-  },
-  {
-    href: "/general/resources",
-    title: "Resources",
-    desc: "Learning resources and materials.",
-    delay: 2,
-  },
-  {
-    href: "/general/official_contests",
-    title: "Official Contests",
-    desc: "View upcoming contests.",
-    delay: 1.5,
-  },
-  {
+    label: "Member Login",
     href: "/login",
-    title: "Member Login",
-    desc: "Access member-exclusive features.",
-    delay: 0.5,
+    ariaLabel: "Announcements",
+    rotation: 8,
+    hoverStyles: { bgColor: "#10b981", textColor: "#ffffff" },
   },
-]
+  {
+    label: "Contests",
+    href: "/general/contests",
+    ariaLabel: "Contests",
+    rotation: -8,
+    hoverStyles: { bgColor: "#f59e0b", textColor: "#ffffff" },
+  },
+  {
+    label: "Resources",
+    href: "/general/resources",
+    ariaLabel: "Resources",
+    rotation: 8,
+    hoverStyles: { bgColor: "#ef4444", textColor: "#ffffff" },
+  },
+  {
+    label: "Official Contests",
+    href: "/general/official_contests",
+    ariaLabel: "Official Contests",
+    rotation: 8,
+    hoverStyles: { bgColor: "#8b5cf6", textColor: "#ffffff" },
+  },
+];
 
-function FloatingBubble({
-  title,
-  desc,
-  href,
-  delay,
-}: {
-  title: string
-  desc: string
-  href: string
-  delay: number
-}) {
+export default function GeneralPage() {
   return (
-    <Link href={href}>
-      <motion.div
-        animate={{
-          y: [0, -12, 0],
-          x: [0, 6, 0],
-        }}
-        transition={{
-          duration: 6 + delay, // vary duration
-          repeat: Infinity,
-          repeatType: "mirror",
-          ease: "easeInOut",
-          delay,
-        }}
-        className="w-56 h-56 rounded-full bg-white/40 backdrop-blur-xl flex flex-col items-center justify-center text-center gap-2 border border-white/30 shadow-lg hover:shadow-2xl hover:scale-105 transition-all"
-      >
-        <h3 className="font-semibold text-lg">{title}</h3>
-        <p className="text-sm text-gray-700">{desc}</p>
-      </motion.div>
-    </Link>
-  )
-}
-
-export default function GeneralDashboardPage() {
-  return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-[#7A85C1] via-[#9CA7DB] to-[#B6C0E8] text-gray-900 p-6">
-      <PageHeader
-        title="General Dashboard"
-        description="Welcome to the Competitive Coding Club!"
+    <div className="min-h-screen w-full p-6">
+      <h1 className="text-4xl font-bold text-center text-white">
+        Welcome to the Club
+      </h1>
+      <BubbleMenu
+        logo={<span style={{ fontWeight: 700 }}>C3</span>}
+        items={items}
+        menuAriaLabel="Toggle navigation"
+        menuBg="#ffffff"
+        menuContentColor="#111111"
+        useFixedPosition={false}
+        animationEase="back.out(1.5)"
+        animationDuration={0.5}
+        staggerDelay={0.12}
       />
-
-      <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3 justify-items-center">
-        {bubbles.map((b) => (
-          <FloatingBubble key={b.title} {...b} />
-        ))}
-      </div>
     </div>
-  )
+  );
 }

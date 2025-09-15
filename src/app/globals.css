@@ -113,25 +113,23 @@
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
   body {
     @apply bg-background text-foreground;
   }
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
 }
+
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
   width: 100%;
-  overflow: hidden; /* remove scroll */
-}
-html, body {
   height: 100%;
+}
+
+* {
   margin: 0;
   padding: 0;
-  background: linear-gradient(to bottom right, #7A85C1, #A5B4FC, #E0E7FF);
-  background-attachment: fixed; /* makes gradient stick while scrolling */
-  background-size: cover;
 }
